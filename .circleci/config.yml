@@ -9,6 +9,9 @@ jobs:
       name: windows/default
     steps:
       - checkout
+      - run: # print the name of the branch we're on
+          name: "What branch am I on?"
+          command: echo ${CIRCLE_BRANCH}      
       - restore_cache:
           keys:
             - dotnet-packages-v1-{{ checksum "Mathematics/Mathematics.csproj" }}
